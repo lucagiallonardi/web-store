@@ -1,0 +1,133 @@
+.navbarContainer{
+    display: flex;
+    flex-direction: row;
+    background-color: rebeccapurple;
+    width: 100vw;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoNav{
+    margin-left: 5vw;
+    background-color: brown;
+    width: 12vh;
+    height: 8vh;
+    cursor: pointer;
+}
+
+.productosClickeado{
+    color: red;
+    margin-left: 3vw;
+    cursor: pointer;
+    margin-right: 2vw;
+}
+
+.searchBarNav{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.iconSearchNav{
+    position: absolute;
+    margin-left: 1vw;
+}
+
+.searchNav{
+    height: 5vh;
+    width: 20vw;
+    outline: none;
+    border-radius: 30px;
+    border: solid 2px gray;
+    padding-left: 4vw;
+    }
+    .searchNav:focus{
+        border: solid 2px #000;
+    }
+
+.itemNav{
+    margin-left: 3vw;
+    cursor: pointer;
+}
+
+.itemNav:nth-child(5){
+    margin-right: 2vw;
+}
+.itemNav:last-child{
+    margin-right: 3vw;
+}
+
+.IconCaretDown{
+    display: inline;
+    position: absolute;
+}
+
+.IconCaretDownDisabled{
+    display: none;
+}
+
+.IconCaretUp{
+    display: inline;
+    position: absolute;
+}
+
+.IconCaretUpDisabled{
+    display: none;
+}
+
+
+.productsNavDisplay{
+    display: flex;
+    position: absolute;
+    left: 0;
+    transform: translateY(2.5vh);
+    background-color: blueviolet;
+    animation: productoDisplay linear .5s;
+    height: 25vh;
+    font-size: 1.2vw;
+    width: 100vw;
+}
+
+.productsNavDisplayNone{
+    height: 0;
+    display: flex;
+    position: absolute;
+    left: 0;
+    background-color: blueviolet;
+    transform: translateY(2.5vh);
+    animation: productoDisplayNone linear .5s;
+    font-size: 0vw;
+    width: 100vw;
+}
+
+
+@keyframes productoDisplay {
+    0%{
+        height: 0;
+        font-size: 0vw;
+    }
+    100%{
+        height: 25vh;
+        font-size: 1.2vw;
+    }
+}
+
+@keyframes productoDisplayNone {
+    0%{
+        height: 25vh;
+        font-size: 1.2vw;
+    }
+    50%{
+        font-size: 0vw;
+    }
+    100%{
+        height: 0;
+        font-size: 0vw;
+    }
+}
+
+.productItemNav{
+    margin: 2vw;
+    width: 100%;
+}
