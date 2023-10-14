@@ -2,7 +2,8 @@
 
 import style from './navbar.module.css';
 import React, { useState } from 'react';
-import {IconCaretDown, IconSearch, IconCaretUp} from '@tabler/icons-react';
+import {IconCaretDown, IconSearch, IconCaretUp,IconArrowNarrowUp} from '@tabler/icons-react';
+import { useInView } from 'react-intersection-observer';
 
 export default function NavBar() {
   const [clicked, setClicked] = useState(false);
@@ -10,10 +11,20 @@ export default function NavBar() {
   const handleClick = ()=>{
     setClicked(!clicked);
   }
+
+  const topButtonNavBar = ()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" 
+    });
+  }
   
+
+  const {ref: navBarRef, inView: myNavBarIsVisible} = useInView();
+
   return (
     <div className={style.navbarContainer}>
-      <div className={style.logoNav}>Logo</div>
+      <div ref={navBarRef} className={style.logoNav}>Logo</div>
       <div className={style.searchBarNav}><IconSearch className={style.iconSearchNav}/>
       <input placeholder="Buscar" className={style.searchNav}></input></div>
       <div className={style.itemNav}>Home</div>
@@ -27,7 +38,9 @@ export default function NavBar() {
       </div>
       </div>
       <div className={style.itemNav}>Marketplace</div>
-
+      
+        <IconArrowNarrowUp className={myNavBarIsVisible ? style.topNavBarNone : style.topNavBar} onClick={topButtonNavBar}/>
+      
 
       
     </div>
