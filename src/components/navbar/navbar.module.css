@@ -6,6 +6,7 @@
     height: 8vh;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .logoNav{
@@ -83,10 +84,11 @@
     left: 0;
     transform: translateY(2.5vh);
     background-color: blueviolet;
-    animation: productoDisplay linear .5s;
+    animation: productoDisplay linear .3s;
     height: 25vh;
     font-size: 1.2vw;
-    width: 100vw;
+    width: 100%;
+    z-index: 2;
 }
 
 .productsNavDisplayNone{
@@ -96,9 +98,10 @@
     left: 0;
     background-color: blueviolet;
     transform: translateY(2.5vh);
-    animation: productoDisplayNone linear .5s;
+    animation: productoDisplayNone linear .3s;
     font-size: 0vw;
-    width: 100vw;
+    width: 100%;
+    z-index: 2;
 }
 
 
@@ -124,8 +127,8 @@
     }
     100%{
         height: 0;
-        font-size: 0vw;
         display: none;
+        font-size: 0;
     }
 }
 

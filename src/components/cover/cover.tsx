@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';    
 import style from './cover.module.css';
-import {IconArrowBadgeLeftFilled, IconArrowBadgeRightFilled} from '@tabler/icons-react';
+import {IconChevronLeft, IconChevronRight} from '@tabler/icons-react';
 
 interface CoverProps {
   imagenes: string[]; 
@@ -25,14 +25,14 @@ export default function Cover({imagenes} : CoverProps){
 
     return(
     <div className={style.coverContainer}>
-        <IconArrowBadgeLeftFilled onClick={anteriorImagen} className={style.anteriorButtonSlide}/>
+        <IconChevronLeft onClick={anteriorImagen} className={style.anteriorButtonSlide}/>
         {imagenes.map((imagen, index)=>{
             return (<div className={imagenActual == index ? `${style.slide} ${style.active}` : style.slide}>
                 {imagenActual == index && (
                 <img key={index} src={imagen} alt="imagen" className={style.imagenCover}/>)}
                 </div>)
         })}
-        <IconArrowBadgeRightFilled onClick={siguienteImagen} className={style.siguienteButtonSlide}/>
+        <IconChevronRight onClick={siguienteImagen} className={style.siguienteButtonSlide}/>
     </div>
 );
 }
