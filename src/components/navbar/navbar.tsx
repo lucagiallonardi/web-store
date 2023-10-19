@@ -29,7 +29,7 @@ export default function NavBar() {
   const {ref: navBarRef, inView: myNavBarIsVisible} = useInView();
 
   return (
-    <div className={style.navbarContainer}>
+    <div className={!favClicked ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
       <div className={style.searchBarNav}><IconSearch className={style.iconSearchNav}/>
       <input placeholder="Buscar" className={style.searchNav}></input></div>
       <div ref={navBarRef} className={style.logoNav}>ECOMMERCE</div>      
@@ -44,7 +44,7 @@ export default function NavBar() {
       </div>
       </div>
       <Link className={style.itemNav} href="/marketplace">Marketplace</Link>
-      <IconHeartFilled className={style.itemNav} onClick={handleFavClick}/>
+      <IconHeartFilled className={!favClicked ? style.itemNav : style.itemFavColor} onClick={handleFavClick}/>
       
         <div className={!favClicked ? style.favoritesContainerNone : style.favoritesContainer}>
             <h3>Favoritos</h3></div>

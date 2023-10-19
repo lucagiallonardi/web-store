@@ -10,9 +10,9 @@ import ItemCard from '@/components/itemCard/itemCard';
 export default function Home() {
 
 const coverImagenes:any[] = [ 
-  "https://i.postimg.cc/PrkSZ3Z1/c.jpg",
-  "https://i.postimg.cc/fLfbHLJH/1279479.jpg",
-  "https://i.postimg.cc/W3zsQZG6/118264-Gg-N7ie-HJEoc-WR5z-Ptq1m-B2v3-Y96x-ULFas-h2.jpg"
+  "https://media.istockphoto.com/id/1357417259/es/foto/primer-plano-del-anillo-de-bodas-de-lujo-en-fondo-de-purpurina-azul-oscuro.jpg?s=612x612&w=0&k=20&c=2phA-HXfLIqM1SJfIiKYQBiJwnUAUjMPveumm0HDyQ0=",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgc4F71WQztZAzxRKPAEZBsSZaWt4iwTjgWSYDWtniS4M3is0LwgfKGqQNsK69Tss7Saw&usqp=CAU",
+  "https://img.freepik.com/fotos-premium/gemas-zafiro-azul-joyas-hechas-piedras-preciosas-joyeria-disenador-pancartas_726113-1481.jpg"
 ];
 
 

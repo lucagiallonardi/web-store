@@ -6,7 +6,14 @@
     height: 8vh;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+}
+
+.navBarConFav{
+    position: fixed;
+    top: 0;
 }
 
 .logoNav{
@@ -60,14 +67,24 @@
     margin-right: 2vw;
 }
 .itemNav:nth-child(7){
-    width: 4vw;
-    height: 4vw;
+    width: 7vh;
+    height: 7vh;
     margin-right: 6vw;
     transition: all .5s;
 }
 
 .itemNav:nth-child(7):hover{
     color: #fff;
+}
+
+.itemFavColor{
+    width: 7vh;
+    height: 7vh;
+    margin-right: 6vw;
+    transition: all .5s;
+    margin-left: 3vw;
+    cursor: pointer;
+    color: #fff
 }
 
 .IconCaretDown{
@@ -99,7 +116,7 @@
     height: 25vh;
     font-size: 1.2vw;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .productsNavDisplayNone{
@@ -112,7 +129,7 @@
     animation: productoDisplayNone linear .3s;
     font-size: 0vw;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
 }
 
 
@@ -157,7 +174,6 @@
         width: 8vh;
         height: 8vh;
         display: flex;
-        z-index: 2;
         border-radius: 50%;
         align-items: center;
         justify-content: center;
@@ -165,7 +181,7 @@
         cursor: pointer;
         opacity: 1;
         animation: topNavBarAnimation ease-in .3s;
-        z-index: 3;
+        z-index: 4;
 }
 
 @keyframes topNavBarAnimation {
@@ -186,7 +202,7 @@
     width: 8vh;
     height: 8vh;
     display: flex;
-    z-index: 2;
+    z-index: 3;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
@@ -220,8 +236,8 @@
     position: fixed;
     right: 0;
     justify-content: center;
-    z-index: 2;
-    animation: favoritesContainerAnimation linear .5s forwards;
+    z-index: 3;
+    animation: favoritesContainerAnimation linear .4s forwards;
 }
 
 .favoritesContainerNone{
@@ -234,9 +250,9 @@
     position: fixed;
     right: 0;
     justify-content: center;
-    z-index: 2;
+    z-index: 3;
     transform: translateX(100%);
-    animation: favoritesContainerNoneAnimation linear .5s;
+    animation: favoritesContainerNoneAnimation linear .4s;
     display: none;
 }
 
