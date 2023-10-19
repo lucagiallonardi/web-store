@@ -4,13 +4,18 @@ import style from './navbar.module.css';
 import React, { useState } from 'react';
 import {IconCaretDown, IconSearch, IconCaretUp,IconArrowNarrowUp} from '@tabler/icons-react';
 import { useInView } from 'react-intersection-observer';
-import Link from 'next/link'
+import {IconHeartFilled} from '@tabler/icons-react';
+import Link from 'next/link';
 
 export default function NavBar() {
   const [clicked, setClicked] = useState(false);
-
+  const [favClicked, setFavClicked] = useState(false);
   const handleClick = ()=>{
     setClicked(!clicked);
+  }
+
+  const handleFavClick = ()=>{
+    setFavClicked(!favClicked);
   }
 
   const topButtonNavBar = ()=>{
@@ -39,11 +44,12 @@ export default function NavBar() {
       </div>
       </div>
       <Link className={style.itemNav} href="/marketplace">Marketplace</Link>
+      <IconHeartFilled className={style.itemNav} onClick={handleFavClick}/>
       
+        <div className={!favClicked ? style.favoritesContainerNone : style.favoritesContainer}>
+            <h3>Favoritos</h3></div>
+            
         <IconArrowNarrowUp className={myNavBarIsVisible ? style.topNavBarNone : style.topNavBar} onClick={topButtonNavBar}/>
-      
-
-      
     </div>
   )
 }

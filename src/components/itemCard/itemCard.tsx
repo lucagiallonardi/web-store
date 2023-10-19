@@ -44,7 +44,7 @@ const handleClick = ()=>{
                 <div className={style.descViewItem}>
                 <IconX className={style.crossViewItem} onClick={handleClick}/>
                 <h3>{props.titleItemCard}</h3>
-                <h5>
+                <h5 className={style.qualifyItemCard}>
                 <IconStarFilled/>
                 <IconStarFilled/>
                 <IconStarFilled/>
