@@ -29,7 +29,7 @@ export default function NavBar() {
   const {ref: navBarRef, inView: myNavBarIsVisible} = useInView();
 
   return (
-    <div className={!favClicked ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
+    <div className={!favClicked && !clicked ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
       <div className={style.searchBarNav}><IconSearch className={style.iconSearchNav}/>
       <input placeholder="Buscar" className={style.searchNav}></input></div>
       <div ref={navBarRef} className={style.logoNav}>ECOMMERCE</div>      
