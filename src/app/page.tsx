@@ -1,13 +1,48 @@
-
-import NavBar from '@/components/navbar/navbar'
-import styles from './page.module.css'
-import Cover from '@/components/cover/cover'
+"use client";
+import React, {useState, useEffect} from 'react';
+import NavBar from '@/components/navbar/navbar';
+import styles from './page.module.css';
+import Cover from '@/components/cover/cover';
 import ItemCard from '@/components/itemCard/itemCard';
+import APIUrl from './utils/apiUrl';
 
 
 
 
 export default function Home() {
+
+const [Products, setProducts] = useState([]);
+const [isLoading, setIsLoading] = useState(false);
+const [error, setError] = useState(null);
+
+
+useEffect(() => {
+  setIsLoading(true);
+
+  const apiUrl = APIUrl;
+
+  fetch(`${apiUrl}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al cargar los datos");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      setProducts(result);
+      setIsLoading(false);
+    })
+    .catch((error) => {
+      setError(error);
+      setIsLoading(false);
+    });
+}, []);
+
+if (isLoading) {
+  return <div>Cargando...</div>;
+}
+
+
 
 const coverImagenes:any[] = [ 
   "https://media.istockphoto.com/id/1357417259/es/foto/primer-plano-del-anillo-de-bodas-de-lujo-en-fondo-de-purpurina-azul-oscuro.jpg?s=612x612&w=0&k=20&c=2phA-HXfLIqM1SJfIiKYQBiJwnUAUjMPveumm0HDyQ0=",
@@ -16,19 +51,15 @@ const coverImagenes:any[] = [
 ];
 
 
+
   return (
    <div>
       <NavBar/>
       <Cover imagenes={coverImagenes}/>
-      <ItemCard
-  props={{
-    srcImgItemCard: "https://anamika-theme.myshopify.com/cdn/shop/products/Home-product-1.jpg?v=1594985739",
-    titleItemCard: "Título del producto",
-    priceItemCard: "$5000",
-    descItemCard: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aut id unde, distinctio delectus quidem natus error maxime, ipsa eos eligendi blanditiis, perferendis ipsam aperiam non veritatis quaerat eum impedit.",
-    qualyItemCard: 4.5
-  }}
-/>
+      {Products.map((product, index)=>(
+        <ItemCard key={index} product={product}/>
+      ))}
+
    </div>
   )
 }

@@ -152,6 +152,12 @@
 
 /* VENTANA DE VIEW */
 
+.productViewContainerAll{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .viewIContainer{
     width: 200vw;
     height: 100vh;
@@ -168,13 +174,20 @@
     display: none;
 }
 
+.viewIWindowNone{
+    display: none;
+}
+
 .viewIWindow{
     background-color: #fff;
     width: 70vw;
+    left: 12vw;
+    top: 8vh;
     height: 85vh;
-    margin-left: 80vw;
     display: flex;
     flex-direction: row;
+    z-index: 5;
+    position: fixed;
 }
 
 .viewImgItem{
