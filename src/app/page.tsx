@@ -1,11 +1,8 @@
 "use client";
 import React, {useState, useEffect} from 'react';
-import NavBar from '@/components/navbar/navbar';
 import styles from './page.module.css';
 import Cover from '@/components/cover/cover';
 import ItemCard from '@/components/itemCard/itemCard';
-import APIUrl from './utils/apiUrl';
-import Layout from '@/components/layout';
 
 
 
@@ -16,6 +13,7 @@ export default function Home() {
 const [Products, setProducts] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState(null);
+const APIUrl = "https://fakestoreapi.com/products?limit=12";
 
 
 useEffect(() => {
