@@ -19,9 +19,8 @@ const APIUrl = "https://fakestoreapi.com/products?limit=12";
 useEffect(() => {
   setIsLoading(true);
 
-  const apiUrl = APIUrl;
 
-  fetch(`${apiUrl}`)
+  fetch(`${APIUrl}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al cargar los datos");

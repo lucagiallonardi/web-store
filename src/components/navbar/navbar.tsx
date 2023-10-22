@@ -47,7 +47,7 @@ export default function NavBar() {
     if (favoriteProducts.length > 0) {
       setShowFavorites(true);
     }
-  }, [favoriteProducts]);
+  }, [favoriteProducts]); 
 
 
 
