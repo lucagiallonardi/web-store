@@ -5,6 +5,8 @@ import styles from './page.module.css';
 import Cover from '@/components/cover/cover';
 import ItemCard from '@/components/itemCard/itemCard';
 import APIUrl from './utils/apiUrl';
+import Layout from '@/components/layout';
+
 
 
 
@@ -41,7 +43,10 @@ useEffect(() => {
 if (isLoading) {
   return <div>Cargando...</div>;
 }
-
+  
+if(error){
+  return <div>Error</div>
+}
 
 
 const coverImagenes:any[] = [ 
@@ -53,13 +58,16 @@ const coverImagenes:any[] = [
 
 
   return (
-   <div>
-      <NavBar/>
+    <div>
       <Cover imagenes={coverImagenes}/>
+      <section id='productsHome' className={styles.productsSectionHome}>
+        <h2>Productos</h2>
+        <div className={styles.divProductsHome}>
       {Products.map((product, index)=>(
-        <ItemCard key={index} product={product}/>
+        <ItemCard key={index} product={product}/>          
       ))}
-
-   </div>
+      </div>
+      </section>
+      </div>
   )
 }

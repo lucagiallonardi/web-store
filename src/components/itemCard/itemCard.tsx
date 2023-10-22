@@ -2,21 +2,19 @@
 import React, {useState} from 'react';
 import style from './itemCard.module.css';
 import {IconHeartFilled, IconEye, IconShoppingCart, IconStarFilled, IconX} from '@tabler/icons-react';
+import { useFavorites } from '../../app/utils/favoritesContext';
+import ProductsProps from '../../app/utils/productsPropsInterface';
 
 
-interface ItemCardProps {
-    product: {
-        id:number,
-        title:string,
-        price:string,
-        category:string,
-        description:string,
-        image:string
-    }; 
-  } 
 
+export default function ItemCard({product}:ProductsProps) {
 
-export default function ItemCard({product}:ItemCardProps) {
+    //funciones para favoritos
+const { addFavoriteProduct } = useFavorites();
+const handleAddToFavorites = () => {
+addFavoriteProduct(product);
+};
+
 const [clicked, setClicked] = useState(false);
 
 const handleClick = ()=>{
@@ -29,7 +27,7 @@ const handleClick = ()=>{
             <div className={style.itemCardImgHover}>
                 <IconShoppingCart className={style.IconShoppingCart}/>
                 <IconEye className={style.IconEye} onClick={handleClick}/>  
-                <IconHeartFilled className={style.IconHeartFilled}/>
+                <IconHeartFilled className={style.IconHeartFilled} onClick={handleAddToFavorites}/>
                 </div></div>
             <h3 className={style.itemCardTitle}>{product.title}</h3>
             <h4 className={style.itemCardPrice}>${product.price}</h4>
@@ -45,8 +43,8 @@ const handleClick = ()=>{
                 <div className={clicked ? style.viewIContainer : style.viewIContainerNone} onClick={handleClick}></div>
                 <div className={clicked ? style.viewIWindow : style.viewIWindowNone}>
                 <img src={product.image} alt={`foto de ${product.title}`} className={style.viewImgItem}/>
-                <div className={style.descViewItem}>
                 <IconX className={style.crossViewItem} onClick={handleClick}/>
+                <div className={style.descViewItem}>
                 <h3>{product.title}</h3>
                 <h5 className={style.qualifyItemCard}>
                 <IconStarFilled/>
@@ -57,7 +55,7 @@ const handleClick = ()=>{
                 </h5>
                 <h4>${product.price}</h4>
                 <p>{product.description}</p>
-                <button className={style.buyButtonView}>COMPRAR</button>
+                <div className={style.buttonsDivView}><span className={style.buyButtonView}>COMPRAR</span><IconHeartFilled className={style.IconHeartFilledView} onClick={handleAddToFavorites}/></div>
                 </div>
                 </div>
             </div>

@@ -209,6 +209,7 @@
     padding: 1vh;
     cursor: pointer;
     opacity: 0;
+    display: none;
     animation: topNavBarAnimationNone ease-in .3s;
 }
 
@@ -228,24 +229,22 @@
 /* FAVORITOS */
 .favoritesContainer{
     top: 8vh;
-    width: 40vw;
-    height: 100vw;
-    background-color: #000;
-    color: #fff;
+    width: 75vh;
+    height: 92vh;
+    background-color: #a2aef3;
     display: flex;
     position: fixed;
     right: 0;
-    justify-content: center;
     z-index: 3;
     animation: favoritesContainerAnimation linear .4s forwards;
+    overflow-y: auto;   
 }
 
 .favoritesContainerNone{
     top: 8vh;
-    width: 40vw;
-    height: 100vw;
-    background-color: #000;
-    color: #fff;
+    width: 75vh;
+    height: 92vh;
+    background-color: #a2aef3;
     display: flex;
     position: fixed;
     right: 0;
@@ -270,8 +269,121 @@
         transform: translateX(0%);
         display: flex;
     }
+    50%{
+        opacity: .2;
+    }
     100%{
+        opacity: 0;
         transform: translateX(100%);
         display: none;
     }
 }
+
+
+.divFavoriteListTitle{
+    margin-left: 25vh;
+    font-size: 3vh;
+}
+
+.liFavItem{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divFavItem{
+    display: flex;
+    flex-direction: row;
+}
+
+.imgFavDivItem{
+    display: flex;
+    width: 15vh;
+    height: 15vh;
+    background-color: #fff;
+    margin-top: 2vh;
+    border-radius: 10px;
+}
+
+.imgFavDivItem>img{
+    margin: 1.5vh;
+    width: 12vh;
+    height: 12vh;
+}
+
+.descFavItemDiv{
+    width: 40vh;
+    margin-left: 2vh;
+}
+
+.descFavItemDiv>h5{
+    font-size: 2.4vh;
+    margin: 0;
+    margin-top: 2vh;
+}
+.divPriceAndBuyDivItem{
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+}
+.divPriceAndBuyDivItem>h6{
+    font-size: 3vh;
+    margin: 0;
+}
+
+.divPriceAndBuyDivItem>span{
+    position: absolute;
+    margin-left: 20vh;
+    background-color: #000;
+    color: #fff;
+    font-size: 2.6vh;
+    padding: 1vh;
+    padding-right: 1.6vh;
+    border-radius: 10px;
+    width: 16vh;
+    cursor: pointer;
+}
+
+.shoppinCartItemDiv{
+    width: 2.6vh;
+    height: 2.6vh;
+    margin-top: .6vh;
+}
+
+.trashXicon{
+    background-color: #fff;
+    width: 4vh;
+    height: 4vh;
+    padding: .5vh;
+    margin-left: 2vh;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.trashXicon:hover{
+    background-color: rgb(255, 72, 0);
+}
+
+.IconChevronRightClose{
+    margin-top: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    width: 6vh;
+    margin-left: -1.5vh;
+    position: absolute;
+    cursor: pointer;
+}
+
+.sinProducts{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50%;
+    margin-left: 15vh;
+}
+

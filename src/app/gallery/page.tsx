@@ -1,14 +1,15 @@
 "use client";
 import React from 'react'
 import style from './page.module.css';
-import NavBar from '@/components/navbar/navbar';
+import Layout from '@/components/layout';
+
 
 
 export default function Gallery(){
     return(
         <div>
-        <NavBar/>
-        
+            Galeria
         </div>
+
     )
 }

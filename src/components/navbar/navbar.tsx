@@ -1,22 +1,34 @@
 "use client";
 
 import style from './navbar.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {IconCaretDown, IconSearch, IconCaretUp,IconArrowNarrowUp} from '@tabler/icons-react';
 import { useInView } from 'react-intersection-observer';
-import {IconHeartFilled} from '@tabler/icons-react';
+import {IconHeartFilled, IconShoppingCart, IconTrashX, IconChevronRight} from '@tabler/icons-react';
 import Link from 'next/link';
+import { useFavorites } from '../../app/utils/favoritesContext';
+import Product from '../../app/utils/productsPropsInterface';
 
 export default function NavBar() {
+
+
+  
   const [clicked, setClicked] = useState(false);
-  const [favClicked, setFavClicked] = useState(false);
+  const { favoriteProducts } = useFavorites();
+  const [showFavorites, setShowFavorites] = useState(false);
   const handleClick = ()=>{
     setClicked(!clicked);
   }
 
   const handleFavClick = ()=>{
-    setFavClicked(!favClicked);
+    setShowFavorites(!showFavorites);
   }
+
+  // REMOVER FAVORITOS
+  const { removeFavoriteProduct } = useFavorites();
+  const handleRemoveToFavorites = ({product}:Product) => {
+    removeFavoriteProduct(product);
+  };
 
   const topButtonNavBar = ()=>{
     window.scrollTo({
@@ -28,8 +40,21 @@ export default function NavBar() {
 
   const {ref: navBarRef, inView: myNavBarIsVisible} = useInView();
 
+  
+
+  
+  useEffect(() => {
+    if (favoriteProducts.length > 0) {
+      setShowFavorites(true);
+    }
+  }, [favoriteProducts]);
+
+
+
+
+
   return (
-    <div className={!favClicked && !clicked ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
+    <div className={!showFavorites && !clicked ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
       <div className={style.searchBarNav}><IconSearch className={style.iconSearchNav}/>
       <input placeholder="Buscar" className={style.searchNav}></input></div>
       <div ref={navBarRef} className={style.logoNav}>ECOMMERCE</div>      
@@ -44,12 +69,30 @@ export default function NavBar() {
       </div>
       </div>
       <Link className={style.itemNav} href="/marketplace">Marketplace</Link>
-      <IconHeartFilled className={!favClicked ? style.itemNav : style.itemFavColor} onClick={handleFavClick}/>
+      <IconHeartFilled className={!showFavorites ? style.itemNav : style.itemFavColor} onClick={handleFavClick}/>
       
-        <div className={!favClicked ? style.favoritesContainerNone : style.favoritesContainer}>
-            <h3>Favoritos</h3></div>
+        <div className={!showFavorites ? style.favoritesContainerNone : style.favoritesContainer}>
+          <IconChevronRight className={style.IconChevronRightClose} onClick={handleFavClick}/>
+        {showFavorites && (
+        <div>
+          <h3 className={style.divFavoriteListTitle}>Favoritos</h3>
+          <ul>
+            {favoriteProducts.length == 0 ? <div className={style.sinProducts}>No hay ningún favorito</div> :
+            favoriteProducts.map((product) => ( 
+              <li className={style.liFavItem} key={product.id}><div className={style.divFavItem}>
+                <div className={style.imgFavDivItem}><img src={product.image} alt={product.title}/></div>
+                <div className={style.descFavItemDiv}>
+                <h5>{product.title}</h5>
+                <div className={style.divPriceAndBuyDivItem}>
+                <h6>${product.price}</h6><span><IconShoppingCart className={style.shoppinCartItemDiv}/>COMPRAR</span>
+                </div>
+                </div></div><IconTrashX  className={style.trashXicon} onClick={() => handleRemoveToFavorites({product})}/></li>
+            ))}
+          </ul>
+        </div>
+      )}</div>
             
-        <IconArrowNarrowUp className={myNavBarIsVisible ? style.topNavBarNone : style.topNavBar} onClick={topButtonNavBar}/>
+        <IconArrowNarrowUp className={myNavBarIsVisible || showFavorites ? style.topNavBarNone : style.topNavBar} onClick={topButtonNavBar}/>
     </div>
   )
 }

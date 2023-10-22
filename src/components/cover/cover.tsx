@@ -27,7 +27,7 @@ export default function Cover({imagenes} : CoverProps){
     <div className={style.coverContainer}>
         <IconChevronLeft onClick={anteriorImagen} className={style.anteriorButtonSlide}/>
         {imagenes.map((imagen, index)=>{
-            return (<div className={imagenActual == index ? `${style.slide} ${style.active}` : style.slide}>
+            return (<div key={index} className={imagenActual == index ? `${style.slide} ${style.active}` : style.slide}>
                 {imagenActual == index && (
                 <img key={index} src={imagen} alt="imagen" className={style.imagenCover}/>)}
                 </div>)
