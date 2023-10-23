@@ -32,29 +32,6 @@
     margin-right: 2vw;
 }
 
-.searchBarNav{
-    margin-left: 2vw;
-    display: flex;
-    align-items: center;
-    margin-right: 8vw;
-}
-
-.iconSearchNav{
-    position: absolute;
-    margin-left: 1vw;
-}
-
-.searchNav{
-    height: 5vh;
-    width: 20vw;
-    outline: none;
-    border-radius: 30px;
-    border: solid 2px gray;
-    padding-left: 4vw;
-    }
-    .searchNav:focus{
-        border: solid 2px #000;
-    }
 
 .itemNav{
     margin-left: 3vw;

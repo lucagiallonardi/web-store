@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import styles from './page.module.css';
 import Cover from '@/components/cover/cover';
 import ItemCard from '@/components/itemCard/itemCard';
+import ProductsProps from './utils/productsPropsInterface';
 
 
 
@@ -10,7 +11,7 @@ import ItemCard from '@/components/itemCard/itemCard';
 
 export default function Home() {
 
-const [Products, setProducts] = useState([]);
+  const [Products, setProducts] = useState<ProductsProps[]>([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState(null);
 const APIUrl = "https://fakestoreapi.com/products?limit=12";
@@ -61,7 +62,7 @@ const coverImagenes:any[] = [
         <h2>Productos</h2>
         <div className={styles.divProductsHome}>
       {Products.map((product, index)=>(
-        <ItemCard key={index} product={product}/>          
+        <ItemCard key={index} {...product}/>          
       ))}
       </div>
       </section>

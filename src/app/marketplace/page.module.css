@@ -1,0 +1,47 @@
+.searchBarMarketplace{
+  margin-top: 10vh;
+  margin-left: 35vw;
+  display: flex;
+  align-items: center;
+}
+
+.iconSearchNavMarketplace{
+  position: absolute;
+  padding-left: 1vh;
+}
+
+.searchNavMarketplace{
+  height: 5vh;
+  width: 20vw;
+  outline: none;
+  border-radius: 30px;
+  border: solid 2px gray;
+  padding-left: 6vh;
+  }
+
+  .searchNav:focus{
+      border: solid 2px #000;
+  }
+
+
+
+.divProductsMarketplace{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: .5vw 2vw; 
+    grid-template-areas: 
+      ". . . ."
+      ". . . ."
+      ". . . ."; 
+}
+
+
+.errorFiltrando{
+  display: flex;
+  margin-left: 30vw;
+}
+
+.errorFiltrandoNone{
+  display: none;
+}

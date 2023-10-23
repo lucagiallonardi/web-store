@@ -7,7 +7,7 @@ import ProductsProps from '../../app/utils/productsPropsInterface';
 
 
 
-export default function ItemCard({product}:ProductsProps) {
+export default function ItemCard(product:ProductsProps) {
 
     //funciones para favoritos
 const { addFavoriteProduct } = useFavorites();
@@ -54,6 +54,7 @@ const handleClick = ()=>{
                 <IconStarFilled/>
                 </h5>
                 <h4>${product.price}</h4>
+                <p>Categoria: {product.category}</p>
                 <p>{product.description}</p>
                 <div className={style.buttonsDivView}><span className={style.buyButtonView}>COMPRAR</span><IconHeartFilled className={style.IconHeartFilledView} onClick={handleAddToFavorites}/></div>
                 </div>

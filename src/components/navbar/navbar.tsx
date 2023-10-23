@@ -16,6 +16,7 @@ export default function NavBar() {
   const [clicked, setClicked] = useState(false);
   const { favoriteProducts } = useFavorites();
   const [showFavorites, setShowFavorites] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const handleClick = ()=>{
     setClicked(!clicked);
   }
@@ -26,7 +27,7 @@ export default function NavBar() {
 
   // REMOVER FAVORITOS
   const { removeFavoriteProduct } = useFavorites();
-  const handleRemoveToFavorites = ({product}:Product) => {
+  const handleRemoveToFavorites = (product:Product) => {
     removeFavoriteProduct(product);
   };
 
@@ -50,13 +51,13 @@ export default function NavBar() {
   }, [favoriteProducts]); 
 
 
+  
+
 
 
 
   return (
     <div className={!showFavorites && !clicked ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
-      <div className={style.searchBarNav}><IconSearch className={style.iconSearchNav}/>
-      <input placeholder="Buscar" className={style.searchNav}></input></div>
       <div ref={navBarRef} className={style.logoNav}>ECOMMERCE</div>      
       <Link className={style.itemNav} href="/">Home</Link>
       <Link className={style.itemNav} href="/gallery">Galeria</Link>
@@ -86,7 +87,7 @@ export default function NavBar() {
                 <div className={style.divPriceAndBuyDivItem}>
                 <h6>${product.price}</h6><span><IconShoppingCart className={style.shoppinCartItemDiv}/>COMPRAR</span>
                 </div>
-                </div></div><IconTrashX  className={style.trashXicon} onClick={() => handleRemoveToFavorites({product})}/></li>
+                </div></div><IconTrashX  className={style.trashXicon} onClick={() => handleRemoveToFavorites(product)}/></li>
             ))}
           </ul>
         </div>
