@@ -40,23 +40,23 @@
     color: #000;
 }
 
-.itemNav:nth-child(5){
+.itemNav:nth-child(4){
     margin-right: 2vw;
 }
-.itemNav:nth-child(7){
-    width: 7vh;
-    height: 7vh;
+.itemNav:nth-child(6){
+    width: 4.5vh;
+    height: 4.5vh;
     margin-right: 6vw;
     transition: all .5s;
 }
 
-.itemNav:nth-child(7):hover{
+.itemNav:nth-child(6):hover{
     color: #fff;
 }
 
 .itemFavColor{
-    width: 7vh;
-    height: 7vh;
+    width: 4.5vh;
+    height: 4.5vh;
     margin-right: 6vw;
     transition: all .5s;
     margin-left: 3vw;

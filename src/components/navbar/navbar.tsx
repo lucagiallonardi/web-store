@@ -2,21 +2,25 @@
 
 import style from './navbar.module.css';
 import React, { useState, useEffect } from 'react';
-import {IconCaretDown, IconSearch, IconCaretUp,IconArrowNarrowUp} from '@tabler/icons-react';
+import {IconCaretDown, IconCaretUp,IconArrowNarrowUp} from '@tabler/icons-react';
 import { useInView } from 'react-intersection-observer';
 import {IconHeartFilled, IconShoppingCart, IconTrashX, IconChevronRight} from '@tabler/icons-react';
 import Link from 'next/link';
 import { useFavorites } from '../../app/utils/favoritesContext';
 import Product from '../../app/utils/productsPropsInterface';
 
-export default function NavBar() {
+
+interface NavBarProps {
+  scrollDown?: boolean;
+}
+
+export default function NavBar({ scrollDown }: NavBarProps) {
 
 
   
   const [clicked, setClicked] = useState(false);
   const { favoriteProducts } = useFavorites();
   const [showFavorites, setShowFavorites] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
   const handleClick = ()=>{
     setClicked(!clicked);
   }
@@ -51,13 +55,8 @@ export default function NavBar() {
   }, [favoriteProducts]); 
 
 
-  
-
-
-
-
   return (
-    <div className={!showFavorites && !clicked ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
+    <div className={!showFavorites && !clicked && scrollDown ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
       <div ref={navBarRef} className={style.logoNav}>ECOMMERCE</div>      
       <Link className={style.itemNav} href="/">Home</Link>
       <Link className={style.itemNav} href="/gallery">Galeria</Link>
