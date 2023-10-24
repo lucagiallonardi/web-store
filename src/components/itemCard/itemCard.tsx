@@ -4,6 +4,8 @@ import style from './itemCard.module.css';
 import {IconHeartFilled, IconEye, IconShoppingCart, IconStarFilled, IconX} from '@tabler/icons-react';
 import { useFavorites } from '../../app/utils/favoritesContext';
 import ProductsProps from '../../app/utils/productsPropsInterface';
+import Link from 'next/link';
+
 
 
 
@@ -29,7 +31,7 @@ const handleClick = ()=>{
                 <IconEye className={style.IconEye} onClick={handleClick}/>  
                 <IconHeartFilled className={style.IconHeartFilled} onClick={handleAddToFavorites}/>
                 </div></div>
-            <h3 className={style.itemCardTitle}>{product.title}</h3>
+            <Link href={`/product/${product.id}`}><h3 className={style.itemCardTitle}>{product.title}</h3></Link>
             <h4 className={style.itemCardPrice}>${product.price}</h4>
             <h5 className={style.itemCardQualy}>
                 <IconStarFilled/>

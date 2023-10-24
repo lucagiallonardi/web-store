@@ -62,10 +62,10 @@ export default function NavBar({ scrollDown }: NavBarProps) {
       <Link className={style.itemNav} href="/gallery">Galeria</Link>
       <div onClick={handleClick} className={ !clicked ? style.itemNav : style.productosClickeado}>Productos <IconCaretDown className={!clicked ? style.IconCaretDown : style.IconCaretDownDisabled}/> <IconCaretUp className={!clicked ? style.IconCaretUpDisabled : style.IconCaretUp}/>
       <div className={!clicked ? style.productsNavDisplayNone : style.productsNavDisplay}>
-        <div className={style.productItemNav}><Link href="/products/category1"><h2>Producto1</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
-        <div className={style.productItemNav}><Link href="/products/category2"><h2>Producto2</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
-        <div className={style.productItemNav}><Link href="/products/category3"><h2>Producto3</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
-        <div className={style.productItemNav}><Link href="/products/category4"><h2>Producto4</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
+        <div className={style.productItemNav}><Link href="/categories/category1"><h2>Producto1</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
+        <div className={style.productItemNav}><Link href="/categories/category2"><h2>Producto2</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
+        <div className={style.productItemNav}><Link href="/categories/category3"><h2>Producto3</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
+        <div className={style.productItemNav}><Link href="/categories/category4"><h2>Producto4</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
       </div>
       </div>
       <Link className={style.itemNav} href="/marketplace">Marketplace</Link>
