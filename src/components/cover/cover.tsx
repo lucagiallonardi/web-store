@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import style from './cover.module.css';
 import {IconChevronLeft, IconChevronRight} from '@tabler/icons-react';
 
+
 interface CoverProps {
   imagenes: string[]; 
 }
@@ -29,7 +30,12 @@ export default function Cover({imagenes} : CoverProps){
         {imagenes.map((imagen, index)=>{
             return (<div key={index} className={imagenActual == index ? `${style.slide} ${style.active}` : style.slide}>
                 {imagenActual == index && (
-                <img key={index} src={imagen} alt="imagen" className={style.imagenCover}/>)}
+                <div className={style.divImagenCover}><img key={index} src={imagen} alt="imagen" className={style.imagenCover}/>
+                <div className={style.divDescription}>
+                <h3>#SCANDLEXPERIENCE</h3>  
+                <h2>Always <i className={style.i1}>cool and soothe</i> your feelings available in a variety of <i className={style.i2}>candle</i></h2>  
+                <div className={style.divButtonCover}>SHOW PRODUCTS</div>
+                </div></div>)}
                 </div>)
         })}
         <IconChevronRight onClick={siguienteImagen} className={style.siguienteButtonSlide}/>

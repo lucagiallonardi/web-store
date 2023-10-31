@@ -3,19 +3,86 @@
     height: 90vh;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     margin-top: 8vh;
+    background-color: #f9f5ea;
 }
 
 .imagenCover{
-    margin: 0;
-    width: 100vw;
-    height: 92vh;
+    width: 44vw;
 }
+
+.divImagenCover{
+    display: flex;
+}
+
+.divDescription{
+    width: 45vw;
+    height: 45vw;
+    margin-left: 5vw;
+}
+
+.divDescription>h3{
+color: var(--dark-300, #555659);
+font-family: Zilla Slab;
+font-size: 1.3vw;
+font-style: normal;
+font-weight: 400;
+line-height: 160%;
+letter-spacing: 0.3vw;
+margin-top: 5vw;
+}
+
+.divDescription>h2{
+color: var(--complement-ruined-smores, #0C0D12);
+font-family: Zilla Slab;
+font-size: 4vw;
+font-style: normal;
+font-weight: 600;
+line-height: 120%;
+letter-spacing: 0.25vw;
+}
+
+.i1{
+color: var(--based-color-peanut-butter-crust, #C9A489);
+font-family: Zilla Slab;
+font-size: 4vw;
+font-style: normal;
+font-weight: 600;
+line-height: 120%;
+letter-spacing: 0.25vw;
+}
+
+.i2{
+color: var(--based-color-peanut-butter-crust, #C9A489);
+font-family: La Belle Aurore;
+font-size: 5vw;
+font-style: normal;
+font-weight: 400;
+line-height: 120%;
+letter-spacing: 0.2vw;
+}
+
+.divButtonCover{
+    background-color: var(--complement-ruined-smores, #0C0D12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 22vw;
+    height: 4vw;
+    border-radius: 50px;
+    font-family: Zilla Slab;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0.5vw;
+    cursor: pointer;
+}
+
 .slide{
-    opacity: .5;
-    transition: opacity .8s ease-in;
+    opacity: 0;
+    transition: opacity .8s ease-in-out;
     z-index: 1;
 }
 
@@ -25,22 +92,22 @@
 
 
 .anteriorButtonSlide{
+    margin-top: 20vw;
     position: absolute;
     left: 0;
-    color: #fff;
+    color: #e2e0eb;
     cursor: pointer;
-    background-color: #000;
     width: 5vw;
     height: 10vh;
     z-index: 2;
 }
 
 .siguienteButtonSlide{
+    margin-top: 20vw;
     position: absolute;
     right: 0;
-    color: #fff;
+    color: #e2e0eb;
     cursor: pointer;
-    background-color: #000;
     width: 5vw;
     height: 10vh;
     z-index: 2;

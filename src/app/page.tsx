@@ -14,7 +14,7 @@ export default function Home() {
   const [Products, setProducts] = useState<ProductsProps[]>([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState(null);
-const APIUrl = "https://fakestoreapi.com/products?limit=12";
+const APIUrl = "https://fakestoreapi.com/products?limit=4";
 
 
 useEffect(() => {
@@ -48,17 +48,18 @@ if(error){
 
 
 const coverImagenes:any[] = [ 
-  "https://media.istockphoto.com/id/1357417259/es/foto/primer-plano-del-anillo-de-bodas-de-lujo-en-fondo-de-purpurina-azul-oscuro.jpg?s=612x612&w=0&k=20&c=2phA-HXfLIqM1SJfIiKYQBiJwnUAUjMPveumm0HDyQ0=",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgc4F71WQztZAzxRKPAEZBsSZaWt4iwTjgWSYDWtniS4M3is0LwgfKGqQNsK69Tss7Saw&usqp=CAU",
-  "https://img.freepik.com/fotos-premium/gemas-zafiro-azul-joyas-hechas-piedras-preciosas-joyeria-disenador-pancartas_726113-1481.jpg"
+  "https://i.postimg.cc/hGTBWzWc/vela.png",
+  "https://i.postimg.cc/hGTBWzWc/vela.png",
+  "https://i.postimg.cc/hGTBWzWc/vela.png"
 ];
 
 
 
   return (
-    <div>
+    <div className={styles.paginaCompleta}>
       <Cover imagenes={coverImagenes}/>
       <section id='productsHome' className={styles.productsSectionHome}>
+        <h3>TENDENCIAS</h3>
         <h2>Productos</h2>
         <div className={styles.divProductsHome}>
       {Products.map((product, index)=>(

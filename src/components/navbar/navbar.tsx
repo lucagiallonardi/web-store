@@ -2,12 +2,14 @@
 
 import style from './navbar.module.css';
 import React, { useState, useEffect } from 'react';
-import {IconCaretDown, IconCaretUp,IconArrowNarrowUp} from '@tabler/icons-react';
+import {IconCaretDown,IconArrowNarrowUp} from '@tabler/icons-react';
 import { useInView } from 'react-intersection-observer';
 import {IconHeartFilled, IconShoppingCart, IconTrashX, IconChevronRight} from '@tabler/icons-react';
 import Link from 'next/link';
 import { useFavorites } from '../../app/utils/favoritesContext';
 import Product from '../../app/utils/productsPropsInterface';
+import logo from './media/logo.svg';
+import Image from 'next/image';
 
 
 interface NavBarProps {
@@ -57,10 +59,9 @@ export default function NavBar({ scrollDown }: NavBarProps) {
 
   return (
     <div className={!showFavorites && !clicked && scrollDown ? style.navbarContainer : `${style.navBarConFav} ${style.navbarContainer}`}>
-      <div ref={navBarRef} className={style.logoNav}>ECOMMERCE</div>      
       <Link className={style.itemNav} href="/">Home</Link>
       <Link className={style.itemNav} href="/gallery">Galeria</Link>
-      <div onClick={handleClick} className={ !clicked ? style.itemNav : style.productosClickeado}>Productos <IconCaretDown className={!clicked ? style.IconCaretDown : style.IconCaretDownDisabled}/> <IconCaretUp className={!clicked ? style.IconCaretUpDisabled : style.IconCaretUp}/>
+      <div onClick={handleClick} className={ !clicked ? style.itemNav : style.productosClickeado}>Productos <IconCaretDown className={!clicked ? style.IconCaretDown : style.IconCaretDownDisabled}/>
       <div className={!clicked ? style.productsNavDisplayNone : style.productsNavDisplay}>
         <div className={style.productItemNav}><Link href="/categories/category1"><h2>Producto1</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
         <div className={style.productItemNav}><Link href="/categories/category2"><h2>Producto2</h2></Link><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nostrum.</p></div>
@@ -69,6 +70,11 @@ export default function NavBar({ scrollDown }: NavBarProps) {
       </div>
       </div>
       <Link className={style.itemNav} href="/marketplace">Marketplace</Link>
+      <div ref={navBarRef} className={style.logoNav}><Image 
+        src={logo}
+        alt="Mi Logo"
+        width={50}  // Ancho deseado
+        height={50}/></div>      
       <IconHeartFilled className={!showFavorites ? style.itemNav : style.itemFavColor} onClick={handleFavClick}/>
       
         <div className={!showFavorites ? style.favoritesContainerNone : style.favoritesContainer}>

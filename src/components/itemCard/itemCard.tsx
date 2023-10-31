@@ -31,7 +31,7 @@ const handleClick = ()=>{
                 <IconEye className={style.IconEye} onClick={handleClick}/>  
                 <IconHeartFilled className={style.IconHeartFilled} onClick={handleAddToFavorites}/>
                 </div></div>
-            <Link href={`/product/${product.id}`}><h3 className={style.itemCardTitle}>{product.title}</h3></Link>
+            <Link href={`/product/${product.id}`} className={style.itemCardTitle}><h3>{product.title}</h3></Link>
             <h4 className={style.itemCardPrice}>${product.price}</h4>
             <h5 className={style.itemCardQualy}>
                 <IconStarFilled/>
