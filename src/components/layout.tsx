@@ -3,6 +3,7 @@ import { FavoritesProvider } from "@/app/utils/favoritesContext";
 import NavBar from "./navbar/navbar"; 
 import React, {ReactNode, useState, useEffect } from 'react';
 import style from './layout.module.css';
+import Footer from "./footer/footer";
 
 export default function Layout({children}: { children: ReactNode }){
     const [scrollDown, setScrollDown] = useState(false);
@@ -32,13 +33,11 @@ export default function Layout({children}: { children: ReactNode }){
     
     return(
         <FavoritesProvider>
-            <NavBar scrollDown={scrollDown}/>
             <main>
+            <NavBar scrollDown={scrollDown}/>
                 {children}
-                <style>
-                  @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Zilla+Slab:wght@300;400&display=swap');
-                </style>
-                </main>
+                <Footer/>
+                </main>                
         </FavoritesProvider>
     )
 }

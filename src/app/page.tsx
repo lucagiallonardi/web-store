@@ -4,6 +4,7 @@ import styles from './page.module.css';
 import Cover from '@/components/cover/cover';
 import ItemCard from '@/components/itemCard/itemCard';
 import ProductsProps from './utils/productsPropsInterface';
+import banner from './media/bannerDesc.png';
 
 
 
@@ -66,6 +67,16 @@ const coverImagenes:any[] = [
         <ItemCard key={index} {...product}/>          
       ))}
       </div>
+      </section>
+      <section className={styles.bannerAllContainer1}>
+        <div className={styles.bannerDivContainer}>
+        <img src={banner.src} alt='banner decorativo anunciando descuentos'/>
+        <div className={styles.divBannerDesc}>
+          <h2><i className={styles.bannerI1}>35%</i> OFF</h2>
+          <h3>Make the most of your<br/>
+          #scandlexperience</h3>    
+        </div></div>
+        <div className={styles.bannerButton1}>SHOW MORE</div>
       </section>
       </div>
   )

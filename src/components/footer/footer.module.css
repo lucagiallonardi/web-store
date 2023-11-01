@@ -1,0 +1,78 @@
+.footerContainer{
+    height: 50vh;
+    width: 100vw;
+    background-color: var(--complement-ruined-smores, #0C0D12);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Zilla Slab;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.2vw;
+}
+
+.footerParteDeArriba{
+    display: flex;
+    border-bottom: solid 1px #fff;
+    width: 90vw;
+    margin-top: 2vw;
+    padding-bottom: 4vw;
+}
+
+.footerUp:nth-child(1){
+    width: 20vh;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f5ea;
+    border-radius: 50%;
+    margin-top: 2vw;
+}
+
+.footerUp:nth-child(2){
+    margin-left: 5vw;
+}
+
+.footerUp:nth-child(2)>ul{
+    list-style: none;
+    line-height: 3vw;
+}
+
+.footerUp:nth-child(3){
+    margin-left: 5vw;
+}
+
+.footerUp:nth-child(3)>ul{
+    list-style: none;
+    line-height: 3vw;
+}
+
+.footerUp:nth-child(4){
+    margin-left: auto;
+    margin-right: 3vw;
+    font-size: 2vw;
+    margin-top: 3vw;
+}
+
+.signupButtonFooter{
+    display: flex;
+    font-size: 1.5vw;
+    border: solid 1px #fff;
+    width: 8vw;
+    padding: 1vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35px;
+    margin-top: 2vw;
+    cursor: pointer;
+}
+
+.footerParteDeAbajo{
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+    font-size: 1vw;
+    margin-top: .5vw;
+}

@@ -19,6 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <Layout>
       <body className={inter.className}>{children}
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Zilla+Slab:wght@300;400&display=swap');
+      </style>
       </body></Layout>
     </html>
   )
