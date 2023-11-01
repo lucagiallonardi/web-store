@@ -5,6 +5,10 @@
   margin-left: 40vw;
 }
 
+.tituloMarketplace{
+  font-size: 2.5vw;
+}
+
 .iconSearchNavMarketplace{
   position: absolute;
   padding-left: 1vh;

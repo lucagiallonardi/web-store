@@ -108,7 +108,7 @@
                   onChange={handleInputChange}
                   onKeyDown={handleEnterKey}
                   ></input></div>
-                  <h3>Marketplace</h3>
+                  <h3 className={style.tituloMarketplace}>Marketplace</h3>
                   <div className={style.divProductsMarketplace}>
                   {Products.map((product, index)=>(
                   <ItemCard key={index} {...product}/>          
