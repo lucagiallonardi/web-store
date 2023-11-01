@@ -228,6 +228,26 @@
     overflow-y: auto;
 }
 
+.descViewItem::-webkit-scrollbar{
+    width: 10px;
+}
+
+.descViewItem::-webkit-scrollbar:horizontal{
+    height: 10px;
+}
+.descViewItem::-webkit-scrollbar-thumb{
+    background-color: #b68068bf;
+    border-radius: 10px;
+    margin-top: 1vw;
+  }
+  
+.descViewItem::-webkit-scrollbar-track{
+    background-color: #ddd;
+    border-radius: 10px;
+    margin-top: .5vw;
+    margin-bottom: .5vw;
+  }
+
 .descViewItem>h3{
     font-size: 3vw;
     margin-top: 5vh;

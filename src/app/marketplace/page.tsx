@@ -5,6 +5,7 @@
   import ItemCard from '@/components/itemCard/itemCard';
   import ProductsProps from '../utils/productsPropsInterface';
   import {IconStarFilled, IconChevronRight} from '@tabler/icons-react';
+  import { useInView } from 'react-intersection-observer';
   
 
 
@@ -19,6 +20,7 @@
   const [categoryActive, setCategoryActive] = useState(false);
   const [priceActive, setPriceActive] = useState(false);
   const [qualyActive, setQualyActive] = useState(false);
+  const {ref: divRef, inView: myDivRefIsVisible} = useInView();
 
 
   useEffect(() => {
@@ -97,7 +99,23 @@
           <div>
               <section>
                 <div className={style.marketplaceAllContainer}>
-                <div className={style.filtrosMarketplaceDiv}>
+                <div className={style.productosMarketplace}>
+                  <div className={style.searchBarMarketplace}><IconSearch className={style.iconSearchNavMarketplace}/>
+                  <input 
+                  placeholder="Buscar"
+                  className={style.searchNavMarketplace}
+                  value={searchTerm}
+                  onChange={handleInputChange}
+                  onKeyDown={handleEnterKey}
+                  ></input></div>
+                  <h3>Marketplace</h3>
+                  <div className={style.divProductsMarketplace}>
+                  {Products.map((product, index)=>(
+                  <ItemCard key={index} {...product}/>          
+                  ))}
+                  </div>
+                  <div className={!errorFiltrando ? style.errorFiltrandoNone : style.errorFiltrando}>No encontraron coincidencias con "{searchTerm}"</div></div>
+                  <div className={!myDivRefIsVisible? style.filtrosMarketplaceDiv : style.filtrosMarketplaceDivBlock}>
                   <div className={style.itemFiltros}>FILTROS</div>
                   <div className={style.itemFiltros}><span onClick={handleActiveCategory}>Categoria <IconChevronRight className={!categoryActive?`${style.iconCategoryFilterNone}`:`${style.iconCategoryFilterActive}`}/></span>
                   <label className={!categoryActive ? `${style.categoryFilterNone}` : `${style.categoryFilterActive}`}>
@@ -132,23 +150,8 @@
                   
                   </div>
                 </div>
-                <div className={style.productosMarketplace}>
-                  <div className={style.searchBarMarketplace}><IconSearch className={style.iconSearchNavMarketplace}/>
-                  <input 
-                  placeholder="Buscar"
-                  className={style.searchNavMarketplace}
-                  value={searchTerm}
-                  onChange={handleInputChange}
-                  onKeyDown={handleEnterKey}
-                  ></input></div>
-                  <h3>Marketplace</h3>
-                  <div className={style.divProductsMarketplace}>
-                  {Products.map((product, index)=>(
-                  <ItemCard key={index} {...product}/>          
-                  ))}
                   </div>
-                  <div className={!errorFiltrando ? style.errorFiltrandoNone : style.errorFiltrando}>No encontraron coincidencias con "{searchTerm}"</div></div>
-                  </div>
+                  <div ref={divRef} className={style.referenceDivMarketplace}></div>
               </section>
           </div>
       )
