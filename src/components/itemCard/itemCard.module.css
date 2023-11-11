@@ -253,6 +253,7 @@
     margin-top: 5vh;
     margin-bottom: 0;
     width: 27vw;
+    line-height: 3vw;
 }
 
 .descViewItem>h4{
@@ -267,6 +268,7 @@
     margin-bottom: 0;
     font-size: 1.2vw;
     width: 27vw;
+    line-height: 1.5vw;
 }
 
 .buttonsDivView{
