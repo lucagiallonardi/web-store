@@ -88,10 +88,13 @@
 }
 @keyframes giroAbajo {
     0%{
-        transform: rotate(-180deg);
+        transform: rotate(-180deg)scale(1);
+    }
+    50%{
+        transform: scale(.2)rotate(0deg);
     }
     100%{
-        transform: rotate(0deg);
+        transform: scale(1);
     }
 }
 
@@ -103,10 +106,13 @@
 
 @keyframes giroArriba {
     0%{
-        transform: rotate(0);
+        transform: rotate(0)scale(1);
+    }
+    50%{
+        transform: rotate(180deg)scale(.2);
     }
     100%{
-        transform: rotate(180deg);
+        transform: rotate(180deg)scale(1);
     }
 }
 
